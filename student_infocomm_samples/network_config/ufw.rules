@@ -1,0 +1,16 @@
+# Базовый ufw-набор для стенда варианта.
+# Применение: каждая строка передаётся в `sudo ufw <строка>`.
+# Комментарии (#) и пустые строки игнорируются.
+
+default deny incoming
+default allow outgoing
+
+allow 22/tcp comment "SSH from anywhere (учебно)"
+allow from 192.168.10.0/24 to any port 5432 proto tcp comment "PostgreSQL LAN"
+allow from 192.168.10.0/24 to any port 3306 proto tcp comment "MySQL LAN"
+allow from 192.168.10.0/24 to any port 9100 proto tcp comment "Prometheus node_exporter"
+allow from 192.168.10.0/24 to any port 9090 proto tcp comment "Prometheus UI"
+allow from 192.168.10.0/24 to any port 80   proto tcp comment "HTTP LAN"
+allow from 192.168.10.0/24 to any port 443  proto tcp comment "HTTPS LAN"
+
+logging on

@@ -1,0 +1,12 @@
+.md-typeset table:not([class]) th {
+  background-color: #eef2f7;
+}
+
+.md-typeset table:not([class]) td code,
+.md-typeset table:not([class]) th code {
+  font-size: 0.85em;
+}
+
+.md-typeset .admonition.warning {
+  border-left-color: #c0392b;
+}

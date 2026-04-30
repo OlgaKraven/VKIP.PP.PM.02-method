@@ -1,0 +1,56 @@
+site_name: Производственная практика — Настройка и обеспечение работоспособности ПО и аппаратных средств ИКС
+
+use_directory_urls: false
+
+theme:
+  name: material
+  language: ru
+  features:
+    - content.code.copy
+    - content.image.zoom
+    - navigation.top
+    - navigation.tracking
+    - toc.follow
+
+plugins:
+  - search
+
+nav:
+  - Главная: index.md
+  - Предметные области: subject_areas.md
+  - Теория:
+      - Этап 1. Инфокоммуникационные системы, ОС и виртуализация: theory/stage1.md
+      - Этап 2. Установка и настройка системного и прикладного ПО, СУБД: theory/stage2.md
+      - Этап 3. Диагностика, мониторинг и проверка работоспособности: theory/stage3.md
+      - Этап 4. Защита от несанкционированного доступа и базовое администрирование: theory/stage4.md
+  - Практика:
+      - Этап 1. Развёртывание стенда и установка СУБД: practice/stage1.md
+      - Этап 2. Базовая настройка сети и защита от НСД: practice/stage2.md
+      - Этап 3. Мониторинг производительности и текущий контроль: practice/stage3.md
+      - Этап 4. Оформление отчёта по практике: practice/stage4.md
+
+markdown_extensions:
+  - tables
+  - admonition
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+  - assets/js/mermaid-init.js
+
+extra_css:
+  - assets/stylesheets/extra.css

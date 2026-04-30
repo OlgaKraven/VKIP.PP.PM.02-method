@@ -311,6 +311,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#парный-репозиторий-со-стендами" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Парный репозиторий со стендами
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#учебные-материалы-учебная-папка" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -781,6 +792,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#парный-репозиторий-со-стендами" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Парный репозиторий со стендами
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#учебные-материалы-учебная-папка" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1018,6 +1040,17 @@
 </tr>
 </tbody>
 </table>
+<hr />
+<h2 id="парный-репозиторий-со-стендами">Парный репозиторий со стендами<a class="headerlink" href="#парный-репозиторий-со-стендами" title="Permanent link">&para;</a></h2>
+<p>Готовый Ansible-стенд для практики (6 ролей, 3 плейбука, 30 вариантов): <a href="https://github.com/OlgaKraven/VKIP.PP.PM.02-projectWork"><code>OlgaKraven/VKIP.PP.PM.02-projectWork</code></a>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/OlgaKraven/VKIP.PP.PM.02-projectWork.git
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>VKIP.PP.PM.02-projectWork
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>make<span class="w"> </span>deps<span class="w">                                  </span><span class="c1"># установить Ansible-коллекции</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>make<span class="w"> </span>up<span class="w">                                    </span><span class="c1"># развернуть весь стенд</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>make<span class="w"> </span>variant-init<span class="w"> </span><span class="nv">V</span><span class="o">=</span><span class="m">05</span><span class="w">                     </span><span class="c1"># активировать вариант (5 — колледж)</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>make<span class="w"> </span>smoke<span class="w">                                 </span><span class="c1"># пост-проверка</span>
+</code></pre></div>
+<p>Стенд автоматически выполняет всё, что описано в <a href="practice/stage1.html">практических этапах</a>: развёртывание СУБД, настройку сети и НСД, запуск мониторинга. Студент проверяет результат, фиксирует артефакты в <code>report/</code> и оформляет отчёт по шаблону.</p>
 <hr />
 <h2 id="учебные-материалы-учебная-папка">Учебные материалы (учебная папка)<a class="headerlink" href="#учебные-материалы-учебная-папка" title="Permanent link">&para;</a></h2>
 <p>В репозитории методички в папке <code>student_infocomm_samples/</code> находятся готовые конфигурационные шаблоны и скрипты:</p>

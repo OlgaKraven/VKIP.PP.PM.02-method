@@ -1,0 +1,1693 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../theory/stage4.html">
+      
+      
+        <link rel="next" href="stage2.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Этап 1. Развёртывание стенда и установка СУБД - Производственная практика — Настройка и обеспечение работоспособности ПО и аппаратных средств ИКС</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#этап-1-развёртывание-стенда-и-установка-субд" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../index.html" title="Производственная практика — Настройка и обеспечение работоспособности ПО и аппаратных средств ИКС" class="md-header__button md-logo" aria-label="Производственная практика — Настройка и обеспечение работоспособности ПО и аппаратных средств ИКС" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Производственная практика — Настройка и обеспечение работоспособности ПО и аппаратных средств ИКС
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Этап 1. Развёртывание стенда и установка СУБД
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Производственная практика — Настройка и обеспечение работоспособности ПО и аппаратных средств ИКС" class="md-nav__button md-logo" aria-label="Производственная практика — Настройка и обеспечение работоспособности ПО и аппаратных средств ИКС" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Производственная практика — Настройка и обеспечение работоспособности ПО и аппаратных средств ИКС
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../subject_areas.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Предметные области
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Теория
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Теория
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../theory/stage1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Этап 1. Инфокоммуникационные системы, ОС и виртуализация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../theory/stage2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Этап 2. Установка и настройка системного и прикладного ПО, СУБД
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../theory/stage3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Этап 3. Диагностика, мониторинг и проверка работоспособности
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../theory/stage4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Этап 4. Защита от несанкционированного доступа и базовое администрирование
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Практика
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Практика
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Этап 1. Развёртывание стенда и установка СУБД
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="stage1.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Этап 1. Развёртывание стенда и установка СУБД
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#задание" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#этап-11-развёртывание-среды-и-установка-субд" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ЭТАП 1.1. Развёртывание среды и установка СУБД
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ЭТАП 1.1. Развёртывание среды и установка СУБД">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#шаг-1-подготовка-изолированной-среды" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг 1. Подготовка изолированной среды
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#шаг-2-выбор-и-установка-субд" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг 2. Выбор и установка СУБД
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг 2. Выбор и установка СУБД">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PostgreSQL (Linux)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MySQL (Linux)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ms-sql-server-express-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MS SQL Server Express (Windows)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#шаг-3-установка-визуальной-среды-администрирования" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг 3. Установка визуальной среды администрирования
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#шаг-4-зафиксируйте-параметры-подключения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг 4. Зафиксируйте параметры подключения
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#этап-12-создание-бд-и-пользователей" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ЭТАП 1.2. Создание БД и пользователей
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ЭТАП 1.2. Создание БД и пользователей">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MySQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#этап-13-диагностика-и-проверка-работоспособности" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ЭТАП 1.3. Диагностика и проверка работоспособности
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ЭТАП 1.3. Диагностика и проверка работоспособности">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#шаг-1-подключение-сторонним-клиентом" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг 1. Подключение сторонним клиентом
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#шаг-2-дамп-бд" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг 2. Дамп БД
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#шаг-3-скриншоты" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг 3. Скриншоты
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#этап-14-системное-администрирование" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ЭТАП 1.4. Системное администрирование
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ЭТАП 1.4. Системное администрирование">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#чек-лист-этапа-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Чек-лист этапа 1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-приложить-к-отчёту-по-этапу-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что приложить к отчёту по этапу 1
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stage2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Этап 2. Базовая настройка сети и защита от НСД
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stage3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Этап 3. Мониторинг производительности и текущий контроль
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stage4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Этап 4. Оформление отчёта по практике
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#задание" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Задание
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#этап-11-развёртывание-среды-и-установка-субд" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ЭТАП 1.1. Развёртывание среды и установка СУБД
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ЭТАП 1.1. Развёртывание среды и установка СУБД">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#шаг-1-подготовка-изолированной-среды" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг 1. Подготовка изолированной среды
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#шаг-2-выбор-и-установка-субд" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг 2. Выбор и установка СУБД
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Шаг 2. Выбор и установка СУБД">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PostgreSQL (Linux)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql-linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MySQL (Linux)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ms-sql-server-express-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MS SQL Server Express (Windows)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#шаг-3-установка-визуальной-среды-администрирования" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг 3. Установка визуальной среды администрирования
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#шаг-4-зафиксируйте-параметры-подключения" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг 4. Зафиксируйте параметры подключения
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#этап-12-создание-бд-и-пользователей" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ЭТАП 1.2. Создание БД и пользователей
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ЭТАП 1.2. Создание БД и пользователей">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MySQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#этап-13-диагностика-и-проверка-работоспособности" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ЭТАП 1.3. Диагностика и проверка работоспособности
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ЭТАП 1.3. Диагностика и проверка работоспособности">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#шаг-1-подключение-сторонним-клиентом" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг 1. Подключение сторонним клиентом
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#шаг-2-дамп-бд" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг 2. Дамп БД
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#шаг-3-скриншоты" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Шаг 3. Скриншоты
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#этап-14-системное-администрирование" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ЭТАП 1.4. Системное администрирование
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ЭТАП 1.4. Системное администрирование">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#чек-лист-этапа-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Чек-лист этапа 1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#что-приложить-к-отчёту-по-этапу-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Что приложить к отчёту по этапу 1
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="этап-1-развёртывание-стенда-и-установка-субд">Этап 1. Развёртывание стенда и установка СУБД<a class="headerlink" href="#этап-1-развёртывание-стенда-и-установка-субд" title="Permanent link">&para;</a></h1>
+<h2 id="задание">Задание<a class="headerlink" href="#задание" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Соответствует Модулю 2 инвариантной части ДЭ ПУ КОД 09.01.05-1-2026 — «Развёртывание и базовая настройка сервера баз данных, администрирование СУБД и операционной системы».</p>
+</blockquote>
+<p>На данном этапе необходимо:</p>
+<ol>
+<li>Изучить теоретические материалы <a href="../theory/stage1.html">«Этап 1. ИКС, ОС и виртуализация»</a> и <a href="../theory/stage2.html">«Этап 2. Установка ПО и СУБД»</a>.</li>
+<li>Подготовить <strong>изолированную среду</strong>: отдельную виртуальную машину или физический ПК.</li>
+<li>Развернуть и настроить локальный сервер БД.</li>
+<li>Создать БД и пользователей с разграничением прав.</li>
+<li>Проверить работоспособность подключения сторонним клиентом.</li>
+<li>Выполнить базовое системное администрирование (служебная учётная запись, профиль, точка восстановления).</li>
+<li>Зафиксировать результаты и подготовить материалы для отчёта.</li>
+</ol>
+<p>Все команды выполняются от имени <strong>администратора системы</strong> (через <code>sudo</code>/PowerShell от администратора).</p>
+<p>В формулах используется <strong><code>XY</code></strong> — номер вашего рабочего места / варианта (две цифры). Пример: для варианта 4 → <code>XY = 04</code>.</p>
+<hr />
+<h2 id="этап-11-развёртывание-среды-и-установка-субд">ЭТАП 1.1. Развёртывание среды и установка СУБД<a class="headerlink" href="#этап-11-развёртывание-среды-и-установка-субд" title="Permanent link">&para;</a></h2>
+<h3 id="шаг-1-подготовка-изолированной-среды">Шаг 1. Подготовка изолированной среды<a class="headerlink" href="#шаг-1-подготовка-изолированной-среды" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Вариант</th>
+<th>Что сделать</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Виртуальная машина</td>
+<td>создать новую ВМ с 2 vCPU, 4 ГБ RAM, 30 ГБ диск; ОС — Ubuntu Server 22.04 / Astra Linux SE / Windows Server 2022</td>
+</tr>
+<tr>
+<td>Физический ПК</td>
+<td>загрузка с LiveUSB либо отдельный пользователь и каталог; подключение к стендовой сети</td>
+</tr>
+</tbody>
+</table>
+<p>Зафиксировать в отчёте:</p>
+<ul>
+<li>гипервизор (Hyper-V / VMware / VirtualBox / KVM) и версия;</li>
+<li>параметры ВМ (vCPU, RAM, диск, сеть);</li>
+<li>ОС: имя, версия, разрядность.</li>
+</ul>
+<h3 id="шаг-2-выбор-и-установка-субд">Шаг 2. Выбор и установка СУБД<a class="headerlink" href="#шаг-2-выбор-и-установка-субд" title="Permanent link">&para;</a></h3>
+<p>Выберите одну из распространённых СУБД и установите её.</p>
+<h4 id="postgresql-linux">PostgreSQL (Linux)<a class="headerlink" href="#postgresql-linux" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>postgresql<span class="w"> </span>postgresql-contrib
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>postgresql
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>psql<span class="w"> </span>--version
+</code></pre></div>
+<p>Имя сервера задаётся через <code>cluster_name</code> в <code>/etc/postgresql/16/main/postgresql.conf</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cluster_name = &#39;lab_sql_42&#39;
+</code></pre></div>
+<p>Перезапуск:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>postgresql
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>sudo<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>psql<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SHOW cluster_name;&quot;</span>
+</code></pre></div>
+<h4 id="mysql-linux">MySQL (Linux)<a class="headerlink" href="#mysql-linux" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>mysql-server
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>mysql
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>sudo<span class="w"> </span>mysql_secure_installation
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>mysql<span class="w"> </span>--version
+</code></pre></div>
+<h4 id="ms-sql-server-express-windows">MS SQL Server Express (Windows)<a class="headerlink" href="#ms-sql-server-express-windows" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">winget</span> <span class="n">install</span> <span class="p">-</span><span class="n">-id</span> <span class="n">Microsoft</span><span class="p">.</span><span class="n">SQLServer</span><span class="p">.</span><span class="n">2022</span><span class="p">.</span><span class="n">Express</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">winget</span> <span class="n">install</span> <span class="p">-</span><span class="n">-id</span> <span class="n">Microsoft</span><span class="p">.</span><span class="n">SQLServerManagementStudio</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">Get-Service</span> <span class="n">MSSQL</span><span class="nv">$SQLEXPRESS</span>
+</code></pre></div>
+<h3 id="шаг-3-установка-визуальной-среды-администрирования">Шаг 3. Установка визуальной среды администрирования<a class="headerlink" href="#шаг-3-установка-визуальной-среды-администрирования" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>СУБД</th>
+<th>Клиент</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PostgreSQL</td>
+<td><strong>pgAdmin 4</strong> (<code>sudo apt install pgadmin4-desktop</code>) или <strong>DBeaver</strong></td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td><strong>HeidiSQL</strong>, <strong>DBeaver</strong>, <strong>MySQL Workbench</strong></td>
+</tr>
+<tr>
+<td>MS SQL Express</td>
+<td><strong>SSMS</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="шаг-4-зафиксируйте-параметры-подключения">Шаг 4. Зафиксируйте параметры подключения<a class="headerlink" href="#шаг-4-зафиксируйте-параметры-подключения" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Пример (PostgreSQL)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Хост</td>
+<td><code>127.0.0.1</code></td>
+</tr>
+<tr>
+<td>Порт</td>
+<td><code>5432</code></td>
+</tr>
+<tr>
+<td>Имя сервера / cluster_name</td>
+<td><code>lab_sql_42</code></td>
+</tr>
+<tr>
+<td>Каталог данных</td>
+<td><code>/var/lib/postgresql/16/main</code></td>
+</tr>
+<tr>
+<td>Служба ОС</td>
+<td><code>postgresql.service</code></td>
+</tr>
+</tbody>
+</table>
+<p>Команды для проверки:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>sudo<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>psql<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SHOW data_directory;&quot;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>sudo<span class="w"> </span>-u<span class="w"> </span>postgres<span class="w"> </span>psql<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;SHOW port;&quot;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>ss<span class="w"> </span>-tnlp<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="m">5432</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>systemctl<span class="w"> </span>status<span class="w"> </span>postgresql
+</code></pre></div>
+<hr />
+<h2 id="этап-12-создание-бд-и-пользователей">ЭТАП 1.2. Создание БД и пользователей<a class="headerlink" href="#этап-12-создание-бд-и-пользователей" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>📌 Замените <code>XY</code> на свой номер рабочего места.</p>
+</blockquote>
+<h3 id="postgresql">PostgreSQL<a class="headerlink" href="#postgresql" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">-- 1. Создать БД</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">corpdata_42</span><span class="p">;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1">-- 2. Создать 5 пользователей</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">client01</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">&#39;P@ss-word#1A&#39;</span><span class="p">;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">client02</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">&#39;P@ss-word#2B&#39;</span><span class="p">;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">client03</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">&#39;P@ss-word#3C&#39;</span><span class="p">;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">client04</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">&#39;P@ss-word#4D&#39;</span><span class="p">;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="n">client05</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">&#39;P@ss-word#5E&#39;</span><span class="p">;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="err">\</span><span class="k">c</span><span class="w"> </span><span class="n">corpdata_42</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="c1">-- 3. Создать таблицу</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">clients</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="n">id</span><span class="w">        </span><span class="nb">SERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">    </span><span class="n">name</span><span class="w">      </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">    </span><span class="n">email</span><span class="w">     </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">,</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">    </span><span class="n">reg_date</span><span class="w">  </span><span class="nb">DATE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_DATE</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="p">);</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="c1">-- 4. Назначить права</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="p">,</span><span class="w"> </span><span class="k">INSERT</span><span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">clients</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">client01</span><span class="p">,</span><span class="w"> </span><span class="n">client02</span><span class="p">;</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w">          </span><span class="k">ON</span><span class="w"> </span><span class="n">clients</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">client03</span><span class="p">;</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="p">,</span><span class="w"> </span><span class="k">UPDATE</span><span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">clients</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">client04</span><span class="p">;</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="p">,</span><span class="w"> </span><span class="k">DELETE</span><span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">clients</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">client05</span><span class="p">;</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">USAGE</span><span class="p">,</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">SEQUENCE</span><span class="w"> </span><span class="n">clients_id_seq</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">client01</span><span class="p">,</span><span class="w"> </span><span class="n">client02</span><span class="p">;</span>
+</code></pre></div>
+<p>Генерация надёжных паролей:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>openssl<span class="w"> </span>rand<span class="w"> </span>-base64<span class="w"> </span><span class="m">16</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>pwgen<span class="w"> </span>-s<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="m">5</span>
+</code></pre></div>
+<h3 id="mysql">MySQL<a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="n">corpdata_42</span><span class="w"> </span><span class="nb">CHARACTER</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">utf8mb4</span><span class="w"> </span><span class="k">COLLATE</span><span class="w"> </span><span class="n">utf8mb4_unicode_ci</span><span class="p">;</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;client01&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;P@ss-word#1A&#39;</span><span class="p">;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;client02&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;P@ss-word#2B&#39;</span><span class="p">;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;client03&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;P@ss-word#3C&#39;</span><span class="p">;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;client04&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;P@ss-word#4D&#39;</span><span class="p">;</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;client05&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;P@ss-word#5E&#39;</span><span class="p">;</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="n">USE</span><span class="w"> </span><span class="n">corpdata_42</span><span class="p">;</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">clients</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="n">id</span><span class="w">        </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="n">name</span><span class="w">      </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="n">email</span><span class="w">     </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">,</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="n">reg_date</span><span class="w">  </span><span class="nb">DATE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="p">(</span><span class="k">CURRENT_DATE</span><span class="p">)</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="p">);</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="p">,</span><span class="w"> </span><span class="k">INSERT</span><span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">corpdata_42</span><span class="p">.</span><span class="n">clients</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;client01&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;client02&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="w">          </span><span class="k">ON</span><span class="w"> </span><span class="n">corpdata_42</span><span class="p">.</span><span class="n">clients</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;client03&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="p">,</span><span class="w"> </span><span class="k">UPDATE</span><span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">corpdata_42</span><span class="p">.</span><span class="n">clients</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;client04&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="p">,</span><span class="w"> </span><span class="k">DELETE</span><span class="w">  </span><span class="k">ON</span><span class="w"> </span><span class="n">corpdata_42</span><span class="p">.</span><span class="n">clients</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;client05&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span>
+</code></pre></div>
+<blockquote>
+<p>Готовый скрипт лежит в <code>student_infocomm_samples/postgres_setup/init.sql</code> и <code>student_infocomm_samples/mysql_setup/init.sql</code>.</p>
+</blockquote>
+<hr />
+<h2 id="этап-13-диагностика-и-проверка-работоспособности">ЭТАП 1.3. Диагностика и проверка работоспособности<a class="headerlink" href="#этап-13-диагностика-и-проверка-работоспособности" title="Permanent link">&para;</a></h2>
+<h3 id="шаг-1-подключение-сторонним-клиентом">Шаг 1. Подключение сторонним клиентом<a class="headerlink" href="#шаг-1-подключение-сторонним-клиентом" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>psql<span class="w"> </span><span class="s2">&quot;host=127.0.0.1 user=client01 dbname=corpdata_42&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">     </span>-c<span class="w"> </span><span class="s2">&quot;INSERT INTO clients(name,email) VALUES (&#39;Anna&#39;,&#39;anna@example.com&#39;);&quot;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>psql<span class="w"> </span><span class="s2">&quot;host=127.0.0.1 user=client03 dbname=corpdata_42&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">     </span>-c<span class="w"> </span><span class="s2">&quot;DELETE FROM clients;&quot;</span><span class="w">          </span><span class="c1"># должна быть ошибка прав</span>
+</code></pre></div>
+<p>В DBeaver: создать соединения от каждого пользователя и проверить операции по матрице прав:</p>
+<table>
+<thead>
+<tr>
+<th>Пользователь</th>
+<th style="text-align: center;">SELECT</th>
+<th style="text-align: center;">INSERT</th>
+<th style="text-align: center;">UPDATE</th>
+<th style="text-align: center;">DELETE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>client01</td>
+<td style="text-align: center;">да</td>
+<td style="text-align: center;">да</td>
+<td style="text-align: center;">нет</td>
+<td style="text-align: center;">нет</td>
+</tr>
+<tr>
+<td>client02</td>
+<td style="text-align: center;">да</td>
+<td style="text-align: center;">да</td>
+<td style="text-align: center;">нет</td>
+<td style="text-align: center;">нет</td>
+</tr>
+<tr>
+<td>client03</td>
+<td style="text-align: center;">да</td>
+<td style="text-align: center;">нет</td>
+<td style="text-align: center;">нет</td>
+<td style="text-align: center;">нет</td>
+</tr>
+<tr>
+<td>client04</td>
+<td style="text-align: center;">да</td>
+<td style="text-align: center;">нет</td>
+<td style="text-align: center;">да</td>
+<td style="text-align: center;">нет</td>
+</tr>
+<tr>
+<td>client05</td>
+<td style="text-align: center;">да</td>
+<td style="text-align: center;">нет</td>
+<td style="text-align: center;">нет</td>
+<td style="text-align: center;">да</td>
+</tr>
+</tbody>
+</table>
+<h3 id="шаг-2-дамп-бд">Шаг 2. Дамп БД<a class="headerlink" href="#шаг-2-дамп-бд" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>pg_dump<span class="w"> </span>-U<span class="w"> </span>postgres<span class="w"> </span>corpdata_42<span class="w"> </span>&gt;<span class="w"> </span>corpdata_42.sql
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>mysqldump<span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-p<span class="w"> </span>corpdata_42<span class="w"> </span>&gt;<span class="w"> </span>corpdata_42.sql
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>head<span class="w"> </span>-20<span class="w"> </span>corpdata_42.sql<span class="w">       </span><span class="c1"># первые 10–20 строк — в отчёт</span>
+</code></pre></div>
+<h3 id="шаг-3-скриншоты">Шаг 3. Скриншоты<a class="headerlink" href="#шаг-3-скриншоты" title="Permanent link">&para;</a></h3>
+<p>Сделать и сохранить скриншоты:</p>
+<ul>
+<li>результат установки СУБД (<code>psql --version</code>, окно мастера, версия СУБД);</li>
+<li>создание БД и таблицы;</li>
+<li>список выданных прав;</li>
+<li>успешное подключение клиентом (DBeaver/SSMS);</li>
+<li>попытка нарушить права — отказ.</li>
+</ul>
+<hr />
+<h2 id="этап-14-системное-администрирование">ЭТАП 1.4. Системное администрирование<a class="headerlink" href="#этап-14-системное-администрирование" title="Permanent link">&para;</a></h2>
+<h3 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># 1. Создать системного пользователя</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>sudo<span class="w"> </span>useradd<span class="w"> </span>-m<span class="w"> </span>-s<span class="w"> </span>/bin/bash<span class="w"> </span>dbadmin_42
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>sudo<span class="w"> </span>passwd<span class="w"> </span>dbadmin_42
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="c1"># 2. Профиль: рабочая папка и DB_HOME</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>sudo<span class="w"> </span>-u<span class="w"> </span>dbadmin_42<span class="w"> </span>bash<span class="w"> </span>-lc<span class="w"> </span><span class="s1">&#39;echo &quot;export DB_HOME=/var/lib/postgresql/16/main&quot; &gt;&gt; ~/.bashrc&#39;</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="c1"># 3. Каталог отчётов и права</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>/home/dbadmin_42/sql_reports_42
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>sudo<span class="w"> </span>chown<span class="w"> </span>dbadmin_42:dbadmin_42<span class="w"> </span>/home/dbadmin_42/sql_reports_42
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">750</span><span class="w"> </span>/home/dbadmin_42/sql_reports_42
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>sudo<span class="w"> </span>setfacl<span class="w"> </span>-m<span class="w"> </span>u:client03:r-x<span class="w"> </span>/home/dbadmin_42/sql_reports_42
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>getfacl<span class="w"> </span>/home/dbadmin_42/sql_reports_42
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="c1"># 4. Снимок ВМ или timeshift</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>timeshift
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>sudo<span class="w"> </span>timeshift<span class="w"> </span>--create<span class="w"> </span>--comments<span class="w"> </span><span class="s2">&quot;after-stage1-pm02&quot;</span>
+</code></pre></div>
+<h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c"># 1. Создать пользователя</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nv">$pwd</span> <span class="p">=</span> <span class="nb">Read-Host</span> <span class="n">-AsSecureString</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="nb">New-LocalUser</span> <span class="n">dbadmin_42</span> <span class="n">-Password</span> <span class="nv">$pwd</span> <span class="n">-FullName</span> <span class="s2">&quot;DB Admin 42&quot;</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="nb">Add-LocalGroupMember</span> <span class="n">-Group</span> <span class="s2">&quot;Administrators&quot;</span> <span class="n">-Member</span> <span class="n">dbadmin_42</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="c"># 2. Профиль</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="no">[Environment]</span><span class="p">::</span><span class="n">SetEnvironmentVariable</span><span class="p">(</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>    <span class="s2">&quot;DB_HOME&quot;</span><span class="p">,</span> <span class="s2">&quot;C:\Program Files\PostgreSQL\16&quot;</span><span class="p">,</span> <span class="s2">&quot;User&quot;</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="p">)</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="c"># 3. Каталог и ACL</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="nv">$dir</span> <span class="p">=</span> <span class="s2">&quot;C:\Users\dbadmin_42\Desktop\sql_reports_42&quot;</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="nb">New-Item</span> <span class="n">-Path</span> <span class="nv">$dir</span> <span class="n">-ItemType</span> <span class="n">Directory</span> <span class="n">-Force</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="n">icacls</span> <span class="nv">$dir</span> <span class="p">/</span><span class="n">inheritance</span><span class="p">:</span><span class="nb">r</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="n">icacls</span> <span class="nv">$dir</span> <span class="p">/</span><span class="n">grant</span> <span class="s2">&quot;Administrators:(OI)(CI)F&quot;</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="n">icacls</span> <span class="nv">$dir</span> <span class="p">/</span><span class="n">grant</span> <span class="s2">&quot;client03:(OI)(CI)RX&quot;</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="n">icacls</span> <span class="nv">$dir</span>
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="c"># 4. Точка восстановления (Windows 10/11 Pro)</span>
+<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="nb">Enable-ComputerRestore</span> <span class="n">-Drive</span> <span class="s2">&quot;C:\&quot;</span>
+<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="nb">Checkpoint-Computer</span> <span class="n">-Description</span> <span class="s2">&quot;after-stage1-pm02&quot;</span> <span class="n">-RestorePointType</span> <span class="s2">&quot;MODIFY_SETTINGS&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="чек-лист-этапа-1">Чек-лист этапа 1<a class="headerlink" href="#чек-лист-этапа-1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Вопрос</th>
+<th style="text-align: center;">ПК</th>
+<th style="text-align: center;">Да/нет</th>
+<th>Комментарий</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Стенд развёрнут в изолированной среде?</td>
+<td style="text-align: center;">2.1</td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td>Установлена и работает СУБД?</td>
+<td style="text-align: center;">2.1</td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td>Имя сервера приведено к виду <code>lab_sql_XY</code>?</td>
+<td style="text-align: center;">2.3</td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td>Зафиксированы порт, каталог данных, имя службы?</td>
+<td style="text-align: center;">2.3</td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td>Создана БД <code>corpdata_XY</code>?</td>
+<td style="text-align: center;">2.1</td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td>Созданы 5 пользователей с надёжными паролями?</td>
+<td style="text-align: center;">2.1, 2.3</td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td>Создана таблица <code>clients</code> со структурой по ТЗ?</td>
+<td style="text-align: center;">2.1</td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td>Назначены права по матрице?</td>
+<td style="text-align: center;">2.3</td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td>Подключение сторонним клиентом успешно?</td>
+<td style="text-align: center;">2.2</td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td>Запрещённая операция возвращает ошибку прав?</td>
+<td style="text-align: center;">2.2</td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td>Получен дамп БД?</td>
+<td style="text-align: center;">2.2</td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td>Создан системный пользователь и его профиль?</td>
+<td style="text-align: center;">2.3</td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td>Создан каталог отчётов с заданными правами?</td>
+<td style="text-align: center;">2.3</td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td>Создана точка восстановления / снимок ВМ?</td>
+<td style="text-align: center;">2.4</td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+<tr>
+<td>Сделаны скриншоты для отчёта?</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;"></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="что-приложить-к-отчёту-по-этапу-1">Что приложить к отчёту по этапу 1<a class="headerlink" href="#что-приложить-к-отчёту-по-этапу-1" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Имя и версия СУБД, параметры подключения, путь установки.</li>
+<li>Список созданных пользователей, таблиц и выданных прав (<code>\du</code>, <code>SHOW GRANTS</code>, или экспорт ACL).</li>
+<li>Скриншоты:<ul>
+<li>установка СУБД,</li>
+<li>создание БД и таблиц,</li>
+<li>права доступа,</li>
+<li>подключение через клиент (успешное и с отказом).</li>
+</ul>
+</li>
+<li>Дамп БД (или его фрагмент — первые 10 строк).</li>
+<li>Комментарий о настройке ОС: учётная запись, профиль, права на каталог, точка восстановления.</li>
+<li>Проверка совместимости с инфраструктурой: зависимости, конфликты портов, состояние службы.</li>
+<li>Проблемы, с которыми столкнулись, и предложения по улучшению.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "content.image.zoom", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../assets/js/mermaid-init.js"></script>
+      
+    
+  </body>
+</html>

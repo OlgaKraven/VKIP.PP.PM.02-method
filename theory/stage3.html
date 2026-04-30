@@ -1,0 +1,1600 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="stage2.html">
+      
+      
+        <link rel="next" href="stage4.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Этап 3. Диагностика, мониторинг и проверка работоспособности - Производственная практика — Настройка и обеспечение работоспособности ПО и аппаратных средств ИКС</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#этап-3-диагностика-мониторинг-и-проверка-работоспособности" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../index.html" title="Производственная практика — Настройка и обеспечение работоспособности ПО и аппаратных средств ИКС" class="md-header__button md-logo" aria-label="Производственная практика — Настройка и обеспечение работоспособности ПО и аппаратных средств ИКС" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Производственная практика — Настройка и обеспечение работоспособности ПО и аппаратных средств ИКС
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Этап 3. Диагностика, мониторинг и проверка работоспособности
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Производственная практика — Настройка и обеспечение работоспособности ПО и аппаратных средств ИКС" class="md-nav__button md-logo" aria-label="Производственная практика — Настройка и обеспечение работоспособности ПО и аппаратных средств ИКС" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Производственная практика — Настройка и обеспечение работоспособности ПО и аппаратных средств ИКС
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Главная
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../subject_areas.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Предметные области
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Теория
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Теория
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stage1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Этап 1. Инфокоммуникационные системы, ОС и виртуализация
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stage2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Этап 2. Установка и настройка системного и прикладного ПО, СУБД
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Этап 3. Диагностика, мониторинг и проверка работоспособности
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="stage3.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Этап 3. Диагностика, мониторинг и проверка работоспособности
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-диагностика-как-процесс" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Диагностика как процесс
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-журнал-событий-ос" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Журнал событий ОС
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Журнал событий ОС">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-linux--journalctl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Linux — journalctl
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-windows--журнал-событий" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Windows — Журнал событий
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-автозагрузка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Автозагрузка
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-проверка-безопасности" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Проверка безопасности
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Проверка безопасности">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-антивирус-и-сканирование" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1. Антивирус и сканирование
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-уязвимости-конфигурации" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2. Уязвимости конфигурации
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-мониторинг-производительности" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Мониторинг производительности
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Мониторинг производительности">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-встроенные-средства" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1. Встроенные средства
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-что-фиксировать-на-дэ" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2. Что фиксировать на ДЭ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-внешний-мониторинг-вариативная-часть" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3. Внешний мониторинг (вариативная часть)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-базовые-параметры-для-слежения-за-производительностью-пк-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Базовые параметры для слежения за производительностью (ПК 2.3)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Базовые параметры для слежения за производительностью (ПК 2.3)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-ограничения-ос" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1. Ограничения ОС
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-параметры-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2. Параметры PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-параметры-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3. Параметры MySQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-отслеживание-производительности-вм-и-виртуальных-ресурсов-пк-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Отслеживание производительности ВМ и виртуальных ресурсов (ПК 2.4)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-проверка-защищённости-от-нсд-часть-пк-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Проверка защищённости от НСД (часть ПК 2.4)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-связь-теории-с-практикой" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Связь теории с практикой
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="stage4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Этап 4. Защита от несанкционированного доступа и базовое администрирование
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Практика
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Практика
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practice/stage1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Этап 1. Развёртывание стенда и установка СУБД
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practice/stage2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Этап 2. Базовая настройка сети и защита от НСД
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practice/stage3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Этап 3. Мониторинг производительности и текущий контроль
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practice/stage4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Этап 4. Оформление отчёта по практике
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-диагностика-как-процесс" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Диагностика как процесс
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-журнал-событий-ос" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Журнал событий ОС
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Журнал событий ОС">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-linux--journalctl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1. Linux — journalctl
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-windows--журнал-событий" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2. Windows — Журнал событий
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-автозагрузка" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Автозагрузка
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-проверка-безопасности" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Проверка безопасности
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Проверка безопасности">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-антивирус-и-сканирование" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1. Антивирус и сканирование
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-уязвимости-конфигурации" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2. Уязвимости конфигурации
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-мониторинг-производительности" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Мониторинг производительности
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Мониторинг производительности">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-встроенные-средства" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1. Встроенные средства
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-что-фиксировать-на-дэ" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2. Что фиксировать на ДЭ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-внешний-мониторинг-вариативная-часть" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3. Внешний мониторинг (вариативная часть)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-базовые-параметры-для-слежения-за-производительностью-пк-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Базовые параметры для слежения за производительностью (ПК 2.3)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Базовые параметры для слежения за производительностью (ПК 2.3)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-ограничения-ос" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1. Ограничения ОС
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-параметры-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2. Параметры PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-параметры-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3. Параметры MySQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-отслеживание-производительности-вм-и-виртуальных-ресурсов-пк-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Отслеживание производительности ВМ и виртуальных ресурсов (ПК 2.4)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-проверка-защищённости-от-нсд-часть-пк-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Проверка защищённости от НСД (часть ПК 2.4)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-связь-теории-с-практикой" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Связь теории с практикой
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="этап-3-диагностика-мониторинг-и-проверка-работоспособности">Этап 3. Диагностика, мониторинг и проверка работоспособности<a class="headerlink" href="#этап-3-диагностика-мониторинг-и-проверка-работоспособности" title="Permanent link">&para;</a></h1>
+<h2 id="1-диагностика-как-процесс">1. Диагностика как процесс<a class="headerlink" href="#1-диагностика-как-процесс" title="Permanent link">&para;</a></h2>
+<p><strong>Диагностика</strong> — последовательная проверка слоёв ИКС от низа к верху для локализации причины сбоя:</p>
+<pre class="mermaid"><code>flowchart TB
+    A[Аппаратура: питание, диск, RAM] --&gt; B[Сеть: линк, IP, маршрут, DNS]
+    B --&gt; C[ОС: служба, процесс, журнал]
+    C --&gt; D[Приложение: конфиг, ошибки в логе]
+    D --&gt; E[Пользовательский сценарий]</code></pre>
+<p>Стандартное правило: <strong>сначала проверяем, что сломалось ниже, потом то, что выше</strong>. Не имеет смысла переустанавливать СУБД, если на хосте недоступна сеть.</p>
+<hr />
+<h2 id="2-журнал-событий-ос">2. Журнал событий ОС<a class="headerlink" href="#2-журнал-событий-ос" title="Permanent link">&para;</a></h2>
+<h3 id="21-linux--journalctl">2.1. Linux — <code>journalctl</code><a class="headerlink" href="#21-linux--journalctl" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>journalctl<span class="w"> </span>-p<span class="w"> </span>err<span class="w"> </span>-b<span class="w">              </span><span class="c1"># ошибки текущей загрузки</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>journalctl<span class="w"> </span>-u<span class="w"> </span>postgresql<span class="w"> </span>-e<span class="w">       </span><span class="c1"># последние строки журнала службы</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>journalctl<span class="w"> </span>--since<span class="w"> </span><span class="s2">&quot;1 hour ago&quot;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>journalctl<span class="w"> </span>--since<span class="w"> </span><span class="s2">&quot;2026-04-30 09:00&quot;</span><span class="w"> </span>--until<span class="w"> </span><span class="s2">&quot;2026-04-30 12:00&quot;</span>
+</code></pre></div>
+<p>Также используются:</p>
+<ul>
+<li><code>/var/log/syslog</code>, <code>/var/log/messages</code>;</li>
+<li><code>/var/log/auth.log</code> (вход в систему);</li>
+<li><code>dmesg</code> — события ядра (диск, USB, RAID).</li>
+</ul>
+<h3 id="22-windows--журнал-событий">2.2. Windows — Журнал событий<a class="headerlink" href="#22-windows--журнал-событий" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">Get-WinEvent</span> <span class="n">-LogName</span> <span class="n">System</span>    <span class="n">-MaxEvents</span> <span class="n">50</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="n">Level</span> <span class="o">-le</span> <span class="n">3</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">Get-WinEvent</span> <span class="n">-LogName</span> <span class="n">Application</span> <span class="n">-MaxEvents</span> <span class="n">50</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nb">Get-WinEvent</span> <span class="n">-FilterHashtable</span> <span class="p">@{</span><span class="n">LogName</span><span class="p">=</span><span class="s1">&#39;System&#39;</span><span class="p">;</span> <span class="n">Level</span><span class="p">=</span><span class="n">1</span><span class="p">,</span><span class="n">2</span><span class="p">;</span> <span class="n">StartTime</span><span class="p">=(</span><span class="nb">Get-Date</span><span class="p">).</span><span class="n">AddHours</span><span class="p">(-</span><span class="n">48</span><span class="p">)}</span>
+</code></pre></div>
+<p>GUI: <code>eventvwr.msc</code> → Журналы Windows → Система / Приложение / Безопасность.</p>
+<p>В отчёте фиксируются как минимум 3 ошибки уровня «Критическая»/«Ошибка» за последние 48 часов: имя события, источник, описание, скриншот или экспорт <code>.evtx</code>.</p>
+<hr />
+<h2 id="3-автозагрузка">3. Автозагрузка<a class="headerlink" href="#3-автозагрузка" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>ОС</th>
+<th>Где смотреть</th>
+<th>Что проверять</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Linux</td>
+<td><code>systemctl list-unit-files --state=enabled</code>, <code>/etc/cron.d/</code>, <code>/etc/systemd/system/</code></td>
+<td>подозрительные unit-файлы, скрипты, <code>cron</code>-задания</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td><code>taskmgr</code> → Автозагрузка, <code>msconfig</code>, <code>autoruns</code> (Sysinternals)</td>
+<td>элементы, не относящиеся к ОС/защитному ПО</td>
+</tr>
+</tbody>
+</table>
+<p>Из 3+ элементов автозагрузки, не связанных с системой/защитой, нужно проанализировать необходимость каждого: что это, когда установлено, должно ли запускаться.</p>
+<hr />
+<h2 id="4-проверка-безопасности">4. Проверка безопасности<a class="headerlink" href="#4-проверка-безопасности" title="Permanent link">&para;</a></h2>
+<h3 id="41-антивирус-и-сканирование">4.1. Антивирус и сканирование<a class="headerlink" href="#41-антивирус-и-сканирование" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Инструмент</th>
+<th>Платформа</th>
+<th>Команда</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Защитник Windows</td>
+<td>Windows</td>
+<td><code>Start-MpScan -ScanType QuickScan</code></td>
+</tr>
+<tr>
+<td>Dr.Web CureIt</td>
+<td>Windows</td>
+<td>GUI</td>
+</tr>
+<tr>
+<td>ClamAV</td>
+<td>Linux</td>
+<td><code>sudo freshclam &amp;&amp; sudo clamscan -r --infected /home</code></td>
+</tr>
+<tr>
+<td>AVZ / RkHunter</td>
+<td>Windows / Linux</td>
+<td>сканирование руткитов</td>
+</tr>
+</tbody>
+</table>
+<p>Результаты складываются в <code>SecurityScan_XX/</code> (отчёт + скриншоты). Найденные угрозы классифицируются: <strong>вирус</strong>, <strong>потенциально нежелательная программа</strong>, <strong>уязвимость конфигурации</strong>.</p>
+<h3 id="42-уязвимости-конфигурации">4.2. Уязвимости конфигурации<a class="headerlink" href="#42-уязвимости-конфигурации" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Категория</th>
+<th>Как проверить (Linux)</th>
+<th>Как проверить (Windows)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Обновления</td>
+<td><code>apt list --upgradable</code></td>
+<td><code>Get-WindowsUpdate</code> (PSWindowsUpdate)</td>
+</tr>
+<tr>
+<td>Открытые порты</td>
+<td><code>ss -tnlp</code>, <code>nmap localhost</code></td>
+<td><code>Get-NetTCPConnection -State Listen</code></td>
+</tr>
+<tr>
+<td>Слабые пароли</td>
+<td><code>pam_passwdqc</code>, <code>cracklib-check</code></td>
+<td><code>secedit /export /cfg pol.cfg</code></td>
+</tr>
+<tr>
+<td>Права на критичные файлы</td>
+<td><code>find / -perm -4000 2&gt;/dev/null</code> (SUID)</td>
+<td><code>icacls C:\Windows\System32</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-мониторинг-производительности">5. Мониторинг производительности<a class="headerlink" href="#5-мониторинг-производительности" title="Permanent link">&para;</a></h2>
+<h3 id="51-встроенные-средства">5.1. Встроенные средства<a class="headerlink" href="#51-встроенные-средства" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Метрика</th>
+<th>Linux</th>
+<th>Windows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Загрузка CPU</td>
+<td><code>top</code>, <code>htop</code>, <code>mpstat</code></td>
+<td>Диспетчер задач, <code>Get-Counter '\Processor(_Total)\% Processor Time'</code></td>
+</tr>
+<tr>
+<td>Загрузка RAM</td>
+<td><code>free -h</code>, <code>vmstat 1</code></td>
+<td><code>Get-Counter '\Memory\Available MBytes'</code></td>
+</tr>
+<tr>
+<td>Диск</td>
+<td><code>iostat -x 1</code>, <code>iotop</code></td>
+<td><code>resmon</code>, <code>Get-Counter '\PhysicalDisk(_Total)\% Disk Time'</code></td>
+</tr>
+<tr>
+<td>Сеть</td>
+<td><code>iftop</code>, <code>nload</code>, <code>ss -s</code></td>
+<td><code>Get-Counter '\Network Interface(*)\Bytes Total/sec'</code></td>
+</tr>
+<tr>
+<td>Процессы</td>
+<td><code>ps aux --sort=-%cpu</code></td>
+<td><code>Get-Process | Sort-Object CPU -Descending</code></td>
+</tr>
+<tr>
+<td>Снимок системы</td>
+<td><code>inxi -Fxz</code>, <code>lshw -short</code></td>
+<td><code>dxdiag</code>, <code>systeminfo</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="52-что-фиксировать-на-дэ">5.2. Что фиксировать на ДЭ<a class="headerlink" href="#52-что-фиксировать-на-дэ" title="Permanent link">&para;</a></h3>
+<p>В рамках задания студент фиксирует:</p>
+<ol>
+<li>2–3 процесса, которые потребляют наибольшее количество ресурсов;</li>
+<li>фоновую активность (сеть, диск);</li>
+<li>таблицу проблем: компонент → проблема/ошибка → причина → рекомендация → риск.</li>
+</ol>
+<h3 id="53-внешний-мониторинг-вариативная-часть">5.3. Внешний мониторинг (вариативная часть)<a class="headerlink" href="#53-внешний-мониторинг-вариативная-часть" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Стек</th>
+<th>Из чего</th>
+<th>Когда использовать</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prometheus + node_exporter + Grafana</td>
+<td>сбор метрик с хостов, дашборд</td>
+<td>хочется графики и тренды</td>
+</tr>
+<tr>
+<td>Zabbix</td>
+<td>агент + сервер + веб</td>
+<td>централизованный мониторинг множества хостов</td>
+</tr>
+<tr>
+<td>Netdata</td>
+<td>один хост, web-UI «из коробки»</td>
+<td>быстрый старт</td>
+</tr>
+<tr>
+<td>Munin</td>
+<td>RRD-графики</td>
+<td>минимализм</td>
+</tr>
+</tbody>
+</table>
+<p>В учебной папке <code>student_infocomm_samples/monitoring/</code> лежит готовый <code>prometheus.yml</code>, <code>node_exporter.service</code> и bash-скрипт сбора метрик.</p>
+<hr />
+<h2 id="6-базовые-параметры-для-слежения-за-производительностью-пк-23">6. Базовые параметры для слежения за производительностью (ПК 2.3)<a class="headerlink" href="#6-базовые-параметры-для-слежения-за-производительностью-пк-23" title="Permanent link">&para;</a></h2>
+<h3 id="61-ограничения-ос">6.1. Ограничения ОС<a class="headerlink" href="#61-ограничения-ос" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Linux</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">ulimit</span><span class="w"> </span>-n<span class="w">            </span><span class="c1"># открытых файлов</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>cat<span class="w"> </span>/proc/sys/fs/file-max
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>sysctl<span class="w"> </span>net.core.somaxconn
+</code></pre></div>
+<h3 id="62-параметры-postgresql">6.2. Параметры PostgreSQL<a class="headerlink" href="#62-параметры-postgresql" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Что задаёт</th>
+<th>Ориентир</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>shared_buffers</code></td>
+<td>размер буфера в RAM</td>
+<td>25% RAM (но не более 8 ГБ)</td>
+</tr>
+<tr>
+<td><code>work_mem</code></td>
+<td>память на сортировку/хеш на сессию</td>
+<td>16–64 МБ</td>
+</tr>
+<tr>
+<td><code>maintenance_work_mem</code></td>
+<td>для VACUUM, CREATE INDEX</td>
+<td>64–512 МБ</td>
+</tr>
+<tr>
+<td><code>max_connections</code></td>
+<td>предел подключений</td>
+<td>по числу клиентов + резерв</td>
+</tr>
+<tr>
+<td><code>effective_cache_size</code></td>
+<td>подсказка планировщику</td>
+<td>50–75% RAM</td>
+</tr>
+<tr>
+<td><code>log_min_duration_statement</code></td>
+<td>логировать долгие запросы</td>
+<td>1000 (мс)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="63-параметры-mysql">6.3. Параметры MySQL<a class="headerlink" href="#63-параметры-mysql" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Параметр</th>
+<th>Что задаёт</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>innodb_buffer_pool_size</code></td>
+<td>основной кэш InnoDB (50–70% RAM)</td>
+</tr>
+<tr>
+<td><code>max_connections</code></td>
+<td>предел подключений</td>
+</tr>
+<tr>
+<td><code>slow_query_log</code> + <code>long_query_time</code></td>
+<td>журнал медленных запросов</td>
+</tr>
+<tr>
+<td><code>innodb_log_file_size</code></td>
+<td>размер redo-лога</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-отслеживание-производительности-вм-и-виртуальных-ресурсов-пк-24">7. Отслеживание производительности ВМ и виртуальных ресурсов (ПК 2.4)<a class="headerlink" href="#7-отслеживание-производительности-вм-и-виртуальных-ресурсов-пк-24" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Объект мониторинга</th>
+<th>Откуда снимать</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ВМ в Hyper-V</td>
+<td><code>Get-VM</code>, <code>Get-Counter '\Hyper-V Hypervisor Logical Processor(_Total)\% Total Run Time'</code></td>
+</tr>
+<tr>
+<td>ВМ в VMware</td>
+<td><code>esxtop</code>, vCenter Performance</td>
+</tr>
+<tr>
+<td>ВМ в KVM/Proxmox</td>
+<td><code>virt-top</code>, графики Proxmox</td>
+</tr>
+<tr>
+<td>Контейнеры Docker</td>
+<td><code>docker stats</code>, <code>cAdvisor</code></td>
+</tr>
+<tr>
+<td>Виртуальная сеть</td>
+<td><code>tcpdump</code>, <code>iftop</code>, метрики коммутатора</td>
+</tr>
+</tbody>
+</table>
+<p>Отслеживание = регулярное снятие метрик + сохранение результатов + реакция на пороговые значения. На ДЭ профильного уровня этот критерий имеет максимальный вес — <strong>25 баллов из 100</strong>.</p>
+<hr />
+<h2 id="8-проверка-защищённости-от-нсд-часть-пк-24">8. Проверка защищённости от НСД (часть ПК 2.4)<a class="headerlink" href="#8-проверка-защищённости-от-нсд-часть-пк-24" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Что проверить</th>
+<th>Команда / инструмент</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Открытые порты «в мир»</td>
+<td><code>nmap -p- &lt;ip&gt;</code> снаружи</td>
+</tr>
+<tr>
+<td>Логирование входов</td>
+<td><code>lastb</code>, <code>last</code>, события 4625/4624 в Windows</td>
+</tr>
+<tr>
+<td>Разрешённые учётные записи</td>
+<td><code>cat /etc/passwd</code>, <code>Get-LocalUser</code></td>
+</tr>
+<tr>
+<td>Привилегии sudo / Administrators</td>
+<td><code>getent group sudo</code>, <code>Get-LocalGroupMember Administrators</code></td>
+</tr>
+<tr>
+<td>Политика паролей</td>
+<td><code>chage -l &lt;user&gt;</code>, <code>secedit /export</code></td>
+</tr>
+<tr>
+<td>Шифрование диска</td>
+<td><code>lsblk -o NAME,TYPE,FSTYPE</code>, <code>manage-bde</code></td>
+</tr>
+<tr>
+<td>Активные удалённые сессии</td>
+<td><code>who</code>, <code>qwinsta</code></td>
+</tr>
+</tbody>
+</table>
+<p>Результат проверки фиксируется в отчёте таблицей: что проверяли → результат → есть ли отклонение → рекомендация.</p>
+<hr />
+<h2 id="9-связь-теории-с-практикой">9. Связь теории с практикой<a class="headerlink" href="#9-связь-теории-с-практикой" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Раздел теории</th>
+<th>Где применяется</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Журнал событий</td>
+<td>этап 3 практики (анализ логов)</td>
+</tr>
+<tr>
+<td>Автозагрузка</td>
+<td>этап 3 практики</td>
+</tr>
+<tr>
+<td>Проверка безопасности</td>
+<td>этапы 2 и 3 практики</td>
+</tr>
+<tr>
+<td>Мониторинг производительности</td>
+<td>этап 3 практики</td>
+</tr>
+<tr>
+<td>Базовые параметры СУБД</td>
+<td>этап 1 и 3 практики</td>
+</tr>
+<tr>
+<td>Отслеживание ВМ</td>
+<td>этап 3 практики (вариативная часть)</td>
+</tr>
+<tr>
+<td>Проверка защищённости</td>
+<td>этапы 2 и 3 практики</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  К началу
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["content.code.copy", "content.image.zoom", "navigation.top", "navigation.tracking", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+        <script src="../assets/js/mermaid-init.js"></script>
+      
+    
+  </body>
+</html>

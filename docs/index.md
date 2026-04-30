@@ -97,6 +97,23 @@
 
 ---
 
+## Парный репозиторий со стендами
+
+Готовый Ansible-стенд для практики (6 ролей, 3 плейбука, 30 вариантов): [`OlgaKraven/VKIP.PP.PM.02-projectWork`](https://github.com/OlgaKraven/VKIP.PP.PM.02-projectWork).
+
+```bash
+git clone https://github.com/OlgaKraven/VKIP.PP.PM.02-projectWork.git
+cd VKIP.PP.PM.02-projectWork
+make deps                                  # установить Ansible-коллекции
+make up                                    # развернуть весь стенд
+make variant-init V=05                     # активировать вариант (5 — колледж)
+make smoke                                 # пост-проверка
+```
+
+Стенд автоматически выполняет всё, что описано в [практических этапах](practice/stage1.md): развёртывание СУБД, настройку сети и НСД, запуск мониторинга. Студент проверяет результат, фиксирует артефакты в `report/` и оформляет отчёт по шаблону.
+
+---
+
 ## Учебные материалы (учебная папка)
 
 В репозитории методички в папке `student_infocomm_samples/` находятся готовые конфигурационные шаблоны и скрипты:

@@ -21,6 +21,21 @@
 - `docs/assets/templates/Отчёт_по_практике_ПМ02.md` — Markdown-заготовка отчёта по практике (студент конвертирует в `.docx`/`.odt`).
 - `student_infocomm_samples/` — учебные конфиги и скрипты: PostgreSQL, MySQL, сеть (`ufw`/`iptables`/`sysctl`), мониторинг (Prometheus/Bash), `.env`-примеры, аудит безопасности.
 
+## Парный репозиторий со стендами
+
+Готовый Ansible-стенд (6 ролей, 3 плейбука, 30 вариантов предметных областей):
+
+```bash
+git clone https://github.com/OlgaKraven/VKIP.PP.PM.02-projectWork.git
+cd VKIP.PP.PM.02-projectWork
+make deps
+make up                       # развернуть весь стенд
+make smoke                    # пост-проверка
+make variant-init V=05        # активировать вариант (например, № 5 — колледж)
+```
+
+Подробнее — в [`README.md` репозитория стендов](https://github.com/OlgaKraven/VKIP.PP.PM.02-projectWork#readme).
+
 ## Структура заданий ДЭ (профильный уровень)
 
 | Часть | Что включает | Время | Баллы |

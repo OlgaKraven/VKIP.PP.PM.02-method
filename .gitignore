@@ -12,3 +12,7 @@ site/
 *.swp
 *.bak
 *.tmp
+
+# Staging directory for the sibling repository VKIP.PP.PM.02-projectForWork
+# (will be moved out to ~/Desktop/VKIP.PP.PM.02-projectForWork/ after first push)
+_projectForWork_staging/

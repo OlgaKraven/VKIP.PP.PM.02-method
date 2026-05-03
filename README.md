@@ -34,6 +34,8 @@ make variant-init V=05        # активировать вариант (нап�
 
 Подробнее — в [`README.md` репозитория стендов](https://github.com/OlgaKraven/VKIP.PP.PM.02-projectWork#readme).
 
+Важно: парный Ansible-стенд рассчитан на Linux-среду (Ubuntu/Debian/Astra Linux). Windows-направление в методичке оформлено как отдельные команды PowerShell, практические блоки и чек-листы, а не как автоматизированный Ansible-стенд.
+
 ## Запуск сайта документации
 
 ```bash
